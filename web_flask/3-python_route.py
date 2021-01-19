@@ -46,7 +46,7 @@ def c_text(text):
 def python_text(text="is cool"):
     """ Display default python + text """
     txt = text.replace('_', ' ')
-    return "C %s" % txt
+    return "Python %s" % txt
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
