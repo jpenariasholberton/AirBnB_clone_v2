@@ -18,11 +18,10 @@ def states_id(id=None):
     list_states = storage.all(State).values()
     if id is not None:
         for state in list_states:
-            if id == state.id:
+            if state.id == id:
                 states.append(state)
     else:
         states = list_states
-    print(states)
     return render_template('9-states.html', states=states)
 
 
@@ -31,13 +30,6 @@ def states_list():
     """ list the states """
     states = storage.all(State).values()
     return render_template('7-states_list.html', states=states)
-
-
-@app.route('/cities_by_states', strict_slashes=False)
-def list_cities_by_states():
-    """ list all cities by states """
-    states = storage.all(State).values()
-    return render_template('8-cities_by_states.html', states=states)
 
 
 @app.teardown_appcontext
