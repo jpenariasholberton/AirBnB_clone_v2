@@ -45,7 +45,9 @@ class DBStorage:
                 class_objects[key] = obj
                 # return class_objects with all class objects
         else:
-            objects = self.__session.query(eval(cls)).all()
+            # make sure use eval(cls) when filestorage is being used
+            # objects = self.__session.query(eval(cls)).all()
+            objects = self.__session.query(cls).all()
             for obj in objects:
                 key = type(obj).__name__ + "." + str(obj.id)
                 class_objects[key] = obj
