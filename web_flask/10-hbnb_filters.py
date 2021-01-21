@@ -9,12 +9,13 @@ from models.amenity import Amenity
 
 app = Flask(__name__)
 
+
 @app.route('/hbnb_filters', strict_slashes=False)
 def hbnb_filters():
     """ states and cities """
-    states = storage.all(State).values()
-    amenities = storage.all(Amenity).values()
-    return render_template('10-hbnb_filters.html', states=states, amenities=amenities)
+    st = storage.all(State).values()
+    am = storage.all(Amenity).values()
+    return render_template('10-hbnb_filters.html', states=st, amenities=am)
 
 
 @app.teardown_appcontext
